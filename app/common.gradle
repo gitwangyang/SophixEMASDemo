@@ -1,0 +1,33 @@
+def emas_version_name = getEnvValue('EMAS_VERSION_NAME')
+def emas_version_code = getEnvValue('EMAS_VERSION_CODE')
+def emas_base_version = getEnvValue('EMAS_BASE_VERSION')
+
+if (emas_version_code) {
+    android.defaultConfig.versionCode = emas_version_code.toInteger()
+    println("emas_version_code=" + emas_version_code)
+}
+
+if (emas_base_version) {
+    println("emas_base_version=" + emas_base_version)
+}
+
+if (emas_version_name) {
+    android.defaultConfig.versionName = emas_version_name
+    println("emas_version_name=" + emas_version_name)
+}
+
+String getEnvValue(key) {
+    return getEnvValue(key, null)
+}
+
+String getEnvValue(key, defValue) {
+    def val = System.getProperty(key);
+    if (null != val) {
+        return val
+    }
+    val = System.getenv(key);
+    if (null != val) {
+        return val
+    }
+    return defValue
+}
