@@ -54,8 +54,8 @@ public class EmasInit {
     public static final int RELEASE = 2;  //发布环境
 
     /*配置信息*/
-    protected String mAppkey = "20000295";//"10000066";//"10000039";//"10000078";//"60039748";
-    protected String mAppSecret = "da1821d71ee798554785abbf0ae7c1a9";//"1426c10c5ce57d6cb29e016a816421a7";//"c7795717b2306055f21fb33418c1d011";//"2e00a7e9ab2048daabd4977170d37c4a";//"ab5ff148782b467bb0b310c4acd70abd"//"fe240d4b8f4b31283863cc9d707e2cb1"
+    protected String mAppkey = "20000297";//"10000066";//"10000039";//"10000078";//"60039748";
+    protected String mAppSecret = "53b92bd7eb29931ab25580506285c9b8";//"1426c10c5ce57d6cb29e016a816421a7";//"c7795717b2306055f21fb33418c1d011";//"2e00a7e9ab2048daabd4977170d37c4a";//"ab5ff148782b467bb0b310c4acd70abd"//"fe240d4b8f4b31283863cc9d707e2cb1"
     protected String mCacheURL = "http://cdn.emas-poc.com/eweex/";
     protected String mACCSDoman = "accs.emas-poc.com";
     protected Map<String, String> mIPStrategy;
