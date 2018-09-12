@@ -23,5 +23,32 @@
         android:layout_gravity="center"
         android:gravity="center"/>
 
+    <Button
+        android:id="@+id/bt_crash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="崩溃"
+        android:layout_gravity="center"
+        android:gravity="center"/>
+    <Button
+        android:id="@+id/bt_ca"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="线程卡顿"
+        android:layout_gravity="center"
+        android:gravity="center"/>
 
+    <Button
+        android:id="@+id/bt_query"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="拉取补丁"
+        android:layout_gravity="center"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/tv_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"/>
 </LinearLayout>
