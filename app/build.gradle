@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
 //调试无法安装时注释掉这行
-apply plugin: 'com.taobao.sophix.emas'
+//apply plugin: 'com.taobao.sophix.emas'
 
 configurations {
     providedCompile
@@ -74,7 +74,7 @@ android {
         debug {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.debugConfig
+//            signingConfig signingConfigs.debugConfig
         }
     }
 }

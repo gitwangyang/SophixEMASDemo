@@ -81,7 +81,7 @@ public class EmasInit {
         private static final long serialVersionUID = 2527336442338823324L;
 
         {
-            //自定义服务, 找@子琛 注册
+            //自定义服务
             put(SERVICE_ID, "com.taobao.demo.accs.TestAccsService");
         }
     };

@@ -3,15 +3,15 @@ package com.dotawang.sophixemasdemo;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Message;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 import com.taobao.sophix.SophixManager;
 
-/*
+/**
 1、AndroidManifest不支持
 2、build 基础依赖包升级不支持
 3、导入sophix插件，无法直接打包
@@ -22,6 +22,7 @@ public class MainActivity extends Activity {
     private ImageView imageView;
     private TextView textView;
     private TextView tv_code;
+    private Button bt_crash,bt_ca,bt_query;
     private Handler handler = new Handler();
 
     @Override
@@ -29,34 +30,13 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         initData();
         initListener();
+        initThread();
+    }
 
+    private void initThread() {
         updata(SophixStubApplication.cacheMsg.toString());
-
-        findViewById(R.id.bt_crash).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                throw new RuntimeException();
-            }
-        });
-        findViewById(R.id.bt_ca).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try{
-                    Thread.sleep(20*1000);
-                }catch (Exception e){
-                    e.printStackTrace();
-                }
-            }
-        });
-        findViewById(R.id.bt_query).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                SophixManager.getInstance().queryAndLoadNewPatch();
-            }
-        });
 
         SophixStubApplication.msgDisplayListener = new SophixStubApplication.MsgDisplayListener() {
             @Override
@@ -79,13 +59,12 @@ public class MainActivity extends Activity {
             }
         }, 1 * 1000);
 
-
     }
 
-
     private void updata(String cacheMsg) {
-        if (cacheMsg != null)
+        if (cacheMsg != null){
             tv_code.setText(cacheMsg);
+        }
     }
 
     private void initListener() {
@@ -102,8 +81,30 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View view) {
                 textView.setText("修复1");
-//                textView.setText("修复2");
-//                textView.setText("修复3");
+              //textView.setText("修复2");
+              //textView.setText("修复3");
+            }
+        });
+        bt_crash.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                throw new RuntimeException();
+            }
+        });
+        bt_ca.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try{
+                    Thread.sleep(20*1000);
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        });
+        bt_query.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SophixManager.getInstance().queryAndLoadNewPatch();
             }
         });
     }
@@ -112,5 +113,8 @@ public class MainActivity extends Activity {
         imageView = findViewById(R.id.iv);
         textView = findViewById(R.id.tv1);
         tv_code = findViewById(R.id.tv_code);
+        bt_crash =  findViewById(R.id.bt_crash);
+        bt_ca =  findViewById(R.id.bt_ca);
+        bt_query =  findViewById(R.id.bt_query);
     }
 }
