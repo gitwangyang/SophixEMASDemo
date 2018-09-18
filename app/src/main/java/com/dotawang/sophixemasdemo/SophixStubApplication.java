@@ -47,6 +47,8 @@ public class SophixStubApplication extends SophixApplication {
                 .setHost("hotfix-gate.emas-poc.com", false)
                 .setEnableDebug(true)
                 .setEnableFullLog()
+                //加固时无法生效时此方法加入可以解决
+                .setUsingEnhance()
                 .setPatchLoadStatusStub(new PatchLoadStatusListener() {
                     @Override
                     public void onLoad(final int mode, final int code, final String info, final int handlePatchVersion) {
